@@ -5,7 +5,7 @@ global bowden_length = 1010 ; distance until the filaent is at the end
 global extruder_load_length = 43
 
 ; wait for 3.5
-; global selector_array = { 0, 21, 42, 68, 89, 110 }
+;global selector_array = {0,22,43,69.2,90.7,112}
 ;global selector_0 = 0
 ;global selector_1 = 21
 ;global selector_2 = 42
