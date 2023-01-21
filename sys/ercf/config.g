@@ -39,4 +39,4 @@ M574 V1 S1 P"124.io3.in" ; V endstop
 M591 D1 P7 C"^124.io1.in" S1 A1 L1.331 ; pulsed filament monitor in the ERCF 
 M950 S10 C"124.io0.out" ; ERCF servo
 
-M98 P"0:/sys/ERCF/init.g"
+M98 P"0:/sys/ercf/init.g"
