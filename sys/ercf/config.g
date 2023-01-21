@@ -1,8 +1,8 @@
-;ERCF Drives
 ;; 124. is canned ERCF board
 ;; 121. is Toolboard 1LC
 ;; 0. is mainboard
 
+;ERCF Drives
 M569 P124.1 S0 D2 ; ERCF Selector - default address for canned board 
 M569 P124.0 S1 D2 ; ERCF Drive - default address for canned board
 
