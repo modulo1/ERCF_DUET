@@ -7,7 +7,7 @@ M569 P124.1 S0 D2 ; ERCF Selector - default address for canned board
 M569 P124.0 S1 D2 ; ERCF Drive - default address for canned board
 
 ; Set drive mapping
-;; we're adding an additional extruder (124.1) and the selector axis (V124.0)
+;; we're adding an additional extruder (124.0) and the selector axis (V124.1)
 M584 E121.0:124.0 V124.1
 
 ;set motor currents (mA) and idle factor
