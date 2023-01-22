@@ -1,3 +1,5 @@
+;; add M98 P"0:/sys/homev.g" to /sys/homeall.g
+
 if global.selector_loaded == 0
 	G1 H1 V-150 F1000
 	G1 V5
