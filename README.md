@@ -27,37 +27,50 @@ GCODE MACROS:
 ```init.g 		- USAGE: Define options for the ERCF (bowden length, selector positions, etc) add "M98 P"init.g" to your config.g to initialise the values```
 
 
-Additions for additional extruder drive to config.g this is my example.
+This config.g is designed to add an ERCF to an existing configuration:
 
-; Drives
-M569 P0.4 S0 D3                                                 ; A
-M569 P0.3 S0 D3                                                 ; B
+```
+;; 124. is canned ERCF board
+;; 121. is Toolboard 1LC
+;; 0. is mainboard
 
-M569 P1.0 S0                                                    ; Extruder
-M569 P124.1 S1 D3												; ERCF Drive - default address for canned board
-M569 P124.0 S0 D3												; ERCF Selector - default address for canned board
+;ERCF Drives
+M569 P124.1 S0 D2 ; ERCF Selector - default address for canned board 
+M569 P124.0 S0 D2 ; ERCF Drive - default address for canned board
 
-M569 P0.5 S1 D3                                                 ; Z0
-M569 P0.1 S1 D3                                                 ; Z1
-M569 P0.2 S0 D3                                                 ; Z2
-M569 P0.0 S0 D3                                                 ; Z3
+; Set drive mapping
+;; we're adding an additional extruder (124.0) and the selector axis (V124.1)
+M584 E121.0:124.0 V124.1
 
-M584 X0.3 Y0.4 Z0.5:0.1:0.2:0.0 E1.0:124.1 V124.0               ; set drive mapping (add additional extruder drive)
-M350 X16 Y16 Z16 E16:16 V16 I1									; configure microstepping with interpolation
-M92 X160.80 Y160.80 Z808.08 E699.8531:1110 V80                  ; set steps per mm
-M566 X350.00 Y350.00 Z200.00 E300.00:300 V300                   ; set maximum instantaneous speed changes (mm/min)
-M203 X20000.00 Y20000.00 Z20000.00 E4000.00:5000 V10000         ; set maximum speeds (mm/min)
-M201 X2800.00 Y2800.00 Z300.00 E250.00:250.0 V2800              ; set accelerations (mm/s^2)
-M906 X1800 Y1800 Z1800 E900:1000 V800 I30                       ; set motor currents (mA) and motor idle factor in per cent
-M84 S30   
+;set motor currents (mA) and idle factor
+M906 E1200:1000 V800 I30
 
-Modify tool to add second drive: 
-M563 P0 D0:1 H1 F0                                                ; define tool 0
+; configure microstepping 
+M350 E16:16 V16 I1
 
-Add axis limits for V axis:
-M208 X0 Y0 Z0 V0 S1												; set axis minima
-M208 X345 Y354 Z355 V115 S0										; set axis maxima
+; set steps per mm
+M92 E673.06:566.3 V80
 
-Add these to the end of the config: 
-M591 D1 P7 C"^124.io1.in" S1 A1 L1.331							; pulsed filament monitor in the ERCF
-M950 S10 C"124.io0.out"											; ERCF servo
+; instantaneous speed change mm/sec
+M205 E5.0:5.0 V5.0
+
+; set maximum speed (mm/min)
+M203 E7200:5000 V5000
+
+;set accelerations
+M201 E10000.0:250.0 V2800		
+
+; modify tool to add second drive
+M563 P0 D0:1 H1 F1 S"ERCFrevo" L0	; define tool 0
+
+; set axis limits for V
+M208 V0 S1 				; minima
+M208 V115 S0 				; maxima
+
+M574 V1 S1 P"124.io3.in" ; V endstop
+M591 D1 P7 C"^124.io1.in" S1 A1 L1.331	; pulsed filament monitor in the ERCF 
+M950 S10 C"124.io0.out" 		; ERCF servo
+
+M98 P"0:/sys/ercf/init.g"		; pull in some variables we use for macros
+					; there's also additional configuration (filament block locations for selector axis, etc.)
+```
