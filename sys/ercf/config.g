@@ -8,6 +8,7 @@ M569 P124.0 S0 D2 ; ERCF Drive - default address for canned board
 
 ; Set drive mapping
 ;; we're adding an additional extruder (124.0) and the selector axis (V124.1)
+;;; E0 is an Orbiter 2.0 on a Toolboard 1LC, E1 is the ERCF
 M584 E121.0:124.0 V124.1
 
 ;set motor currents (mA) and idle factor
