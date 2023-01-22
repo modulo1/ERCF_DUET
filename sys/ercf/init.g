@@ -42,3 +42,6 @@ if !exists(global.selector_4)
 if !exists(global.selector_5)
 	elsif
 		global selector_5 = 112
+if !exists(global.selector_offset)
+	elsif
+		global selector_offset = 2.0
