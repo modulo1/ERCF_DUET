@@ -8,15 +8,15 @@
 
 ;Advance Extruder 0 5mm
 
-if global.selector_loaded == 0
-	M226																	;No filament loaded pause print
+if global.ercf_selector_loaded == 0
+	M226										;No filament loaded pause print
 else
-	M715 S1																	;engage the servo
+	M715 S1										;engage the servo
 	M400
-	echo {global.bowden_length}
-	G1 E{0, global.bowden_length} F3000										;feed filament to the end of the bowden
+	echo {global.ercf_bowden_length}
+	G1 E{0, global.ercf_bowden_length} F3000					;feed filament to the end of the bowden
 	M400		
-	G1 E{global.extruder_load_length, global.extruder_load_length} F2000	;move both extruders in tandem to load
+	G1 E{global.ercf_extruder_load_length, global.ercf_extruder_load_length} F2000	;move both extruders in tandem to load
 	M400	
-	M715 S0																	;disengage servo
+	M715 S0										;disengage servo
 	G1 E5
