@@ -2,7 +2,7 @@
 
 if param.S == 1
 	M280 P10 S90
-	set global.selector_engaged = 1
+	set global.ercf_selector_engaged = 1
 else 
 	M280 P10 S0
-	set global.selector_engaged = 0
+	set global.ercf_selector_engaged = 0
