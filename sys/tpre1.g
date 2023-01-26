@@ -1,1 +1,1 @@
-M700 S1
+M700 S{state.nextTool}
