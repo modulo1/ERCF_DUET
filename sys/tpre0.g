@@ -1,3 +1,1 @@
-;M563 P1 D0:1 H1 F1 L0
-;M700 S0
-M700 S0
+M700 S{state.nextTool}
