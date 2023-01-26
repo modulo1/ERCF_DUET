@@ -5,22 +5,22 @@ var ok = false
 
 if exists( param.S )
 	if param.S == 0
-		set var.tool = global.selector_0
+		set var.tool = global.ercf_selector_0
 		set var.ok = true
 	elif param.S == 1
-		set var.tool = global.selector_1
+		set var.tool = global.ercf_selector_1
 		set var.ok = true
 	elif param.S == 2
-		set var.tool = global.selector_2
+		set var.tool = global.ercf_selector_2
 		set var.ok = true
 	elif param.S == 3
-		set var.tool = global.selector_3
+		set var.tool = global.ercf_selector_3
 		set var.ok = true
 	elif param.S == 4
-		set var.tool = global.selector_4
+		set var.tool = global.ercf_selector_4
 		set var.ok = true
 	elif param.S == 5
-		set var.tool = global.selector_5
+		set var.tool = global.ercf_selector_5
 		set var.ok = true
 	else
 		set var.ok = false
