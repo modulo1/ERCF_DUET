@@ -1,50 +1,25 @@
-if !exists(global.ercf_pulse_count)
- 	elsif 
-		global ercf_pulse_count = 0
-if !exists(global.ercf_last_count)
- 	elsif 
-		global ercf_last_count = 0
-if !exists(global.ercf_selector_loaded)
-	elsif
-		global ercf_selector_loaded = 0
-if !exists(global.ercf_selector_engaged)
-	elsif
-		global ercf_selector_engaged = 0
-if !exists(global.ercf_bowden_length)
-	elsif
-		global ercf_bowden_length = 1010 ; distance until the filaent is at the end
-if !exists(global.ercf_extruder_load_length)
-	elsif
-		global ercf_extruder_load_length = 43
 
-; wait for 3.5
-;global ercf_selector_array = {0,22,43,69.2,90.7,112}
-;;; original values, as reference
-;global ercf_selector_0 = 0
-;global ercf_selector_1 = 21
-;global ercf_selector_2 = 42
-;global ercf_selector_3 = 68
-;global ercf_selector_4 = 89
-;global ercf_selector_5 = 110
+;; global declarations for ERCF
+;; some defaults established
+;; and variables set and loaded
 
-if !exists(global.ercf_selector_0)
-	elsif
-		global ercf_selector_0 = 0
-if !exists(global.ercf_selector_1)
-	elsif
-		global ercf_selector_1 = 22
-if !exists(global.ercf_selector_2)
-	elsif
-		global ercf_selector_2 = 43
-if !exists(global.ercf_selector_3)
-	elsif
-		global ercf_selector_3 = 69.2
-if !exists(global.ercf_selector_4)
-	elsif
-		global ercf_selector_4 = 90.7
-if !exists(global.ercf_selector_5)
-	elsif
-		global ercf_selector_5 = 112
-if !exists(global.ercf_selector_offset)
-	elsif
-		global ercf_selector_offset = 2.0
+if !exists(global.ercf_settings_loaded)
+	;=== configuration - general settings ===;
+	global ercf_bowden_length = 630                              ;; distance until the filaent is at the end
+	global ercf_extruder_load_length = 50                        ;; Orbiter 2.0 on EVA3 with E3D Revo Voron hotend
+	;=== configuration - blinky pulse count ===;
+	global ercf_pulse_count = 0
+	global ercf_last_count = 0
+	;=== configuration - selector ===;
+	global ercf_selector_loaded = 0
+	global ercf_selector_engaged = 0	
+    ;global ercf_selector_array = {0,22,43,69.2,90.7,112,112,112}
+	global ercf_selector_0 = 0
+	global ercf_selector_1 = 11
+	global ercf_selector_2 = 22
+	global ercf_selector_3 = 35
+	global ercf_selector_4 = 45.2
+	global ercf_selector_5 = 110
+	global ercf_selector_6 = 110
+	global ercf_selector_7 = 110
+	global ercf_selector_offset = 1.000
